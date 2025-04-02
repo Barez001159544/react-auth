@@ -33,15 +33,15 @@ const LoginSignUp = () => {
       console.log(response.data);
       setLoading(false);
       const fetchedUser = {
-        id: 1,
-        username: "emilys",
-        email: "emily.johnson@x.dummyjson.com",
-        firstName: "Emily",
-        lastName: "Johnson",
-        gender: "female",
-        image: "https://dummyjson.com/icon/emilys/128",
-        accessToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
-        refreshToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+        id: response.data["id"],
+        username: response.data["username"],
+        email: response.data["email"],
+        firstName: response.data["firstName"],
+        lastName: response.data["lastName"],
+        gender: response.data["gender"],
+        image: response.data["image"],
+        accessToken: response.data["accessToken"],
+        refreshToken: response.data["refreshToken"],
       };
       setUser(fetchedUser);
     } catch (error) {
