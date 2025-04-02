@@ -11,6 +11,7 @@ const LoginSignUp = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [user, setUser] = useState(null);
 
   const login = async () => {
     console.log(email); //emilys
@@ -31,6 +32,18 @@ const LoginSignUp = () => {
 
       console.log(response.data);
       setLoading(false);
+      const fetchedUser = {
+        id: 1,
+        username: "emilys",
+        email: "emily.johnson@x.dummyjson.com",
+        firstName: "Emily",
+        lastName: "Johnson",
+        gender: "female",
+        image: "https://dummyjson.com/icon/emilys/128",
+        accessToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+        refreshToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+      };
+      setUser(fetchedUser);
     } catch (error) {
       console.log("Failed to login");
       setLoading(false);
@@ -92,6 +105,18 @@ const LoginSignUp = () => {
           <h3>AN ERROR OCURRED</h3>
           <p>{errorMessage}</p>
           <div className="submit confirm" onClick={() => setErrorMessage("")}>
+            OK
+          </div>
+        </div>
+      )}
+      {user && (
+        <div className="popup success-popup">
+          <img src={user.image} alt="" />
+          <h2>
+            {user.firstName} {user.lastName}
+          </h2>
+          <h4>{user.email}</h4>
+          <div className="submit confirm" onClick={() => setUser(null)}>
             OK
           </div>
         </div>
