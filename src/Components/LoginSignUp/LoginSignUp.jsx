@@ -3,11 +3,14 @@ import "./LoginSignUp.css";
 import email_icon from "../Assets/mail.png";
 import user_icon from "../Assets/user.png";
 import password_icon from "../Assets/padlock.png";
+import hide_icon from "../Assets/hide.png";
+import show_icon from "../Assets/show.png";
 import axios from "axios";
 import { ThreeDot } from "react-loading-indicators";
 
 const LoginSignUp = () => {
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [email, setEmail] = useState("emilys");
   const [password, setPassword] = useState("emilyspass");
@@ -81,11 +84,21 @@ const LoginSignUp = () => {
         <div className="input">
           <img src={password_icon} alt="" />
           <input
-            type="password"
+            type={showPassword ? "text" : "password"}
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
+          <button
+            type="button"
+            onClick={() => setShowPassword(!showPassword)}
+          >
+            {showPassword ? (
+              <img className="show-hide" src={hide_icon}></img>
+            ) : (
+              <img className="show-hide" src={show_icon}></img>
+            )}
+          </button>
         </div>
       </div>
       <div className="forgot-password">

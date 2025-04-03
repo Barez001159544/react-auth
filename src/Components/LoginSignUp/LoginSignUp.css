@@ -55,6 +55,22 @@
   height: 30px;
 }
 
+.input button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  width: 60px;
+  height: 60px;
+  padding: 0px;
+  margin: 0px 15px;
+}
+
+.input .show-hide {
+  margin: 0;
+  width: 30px;
+  height: 30px;
+}
+
 .input input {
   height: 50px;
   width: 400px;
