@@ -9,8 +9,8 @@ import { ThreeDot } from "react-loading-indicators";
 const LoginSignUp = () => {
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("emilys");
+  const [password, setPassword] = useState("emilyspass");
   const [user, setUser] = useState(null);
 
   const login = async () => {
@@ -74,6 +74,7 @@ const LoginSignUp = () => {
           <input
             type="email"
             placeholder="Email"
+            value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
@@ -82,6 +83,7 @@ const LoginSignUp = () => {
           <input
             type="password"
             placeholder="Password"
+            value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
@@ -95,6 +97,7 @@ const LoginSignUp = () => {
         </div>
       </div>
       {/* Loading Popup */}
+      {(errorMessage || user) && <div className="overlay"></div>}
       {loading && (
         <div className="popup loading-popup">
           <ThreeDot color="#fff" size="large" />
