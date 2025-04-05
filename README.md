@@ -20,10 +20,10 @@ Screen 1                   |  Screen 2                 |  Screen 3
 
 1. **Clone the repository**  
    ```sh
-   git clone https://github.com/your-username/your-repo-name.git
+   git clone https://github.com/Barez001159544/react-auth.git
 2. **Navigate to the project directory**  
    ```sh
-   cd your-repo-name
+   cd react-auth
 3. **Install dependencies**  
    ```sh
    npm install
